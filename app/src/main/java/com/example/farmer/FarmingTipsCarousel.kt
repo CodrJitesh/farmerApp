@@ -24,7 +24,7 @@ fun FarmingTipsCarousel() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        contentPadding = PaddingValues(horizontal = 6.dp)
     ) {
         items(itemCount) { index ->
             val actualIndex = index % farmingTips.size

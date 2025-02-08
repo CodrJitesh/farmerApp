@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -93,15 +94,19 @@ fun ItemRow(record: CommodityRecord) {
             ) {
                 Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceEvenly) {
 
-                    Text("${record.commodity}")
 
 
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Bottom) {
-                        Text("₹ ${record.min_price.toInt()}", color = Color(0xFF25b800), fontSize = 26.sp)
-                        Text("₹ ${record.modal_price.toInt()}", fontSize = 40.sp)
-                        Text("₹ ${record.max_price.toInt()}", color = Color(0xFFd40606), fontSize = 26.sp)
+
+
+
+                    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
+                        Text("${record.commodity}", fontSize = 32.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(start = 14.dp))
+                        Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.SpaceBetween) {
+                            Text("₹ ${record.min_price.toInt()}", color = Color(0xFF25b800), fontSize = 16.sp, modifier = Modifier.padding(end = 14.dp))
+                            Text("₹ ${record.modal_price.toInt()}", fontSize = 34.sp, modifier = Modifier.padding(end = 14.dp))
+                            Text("₹ ${record.max_price.toInt()}", color = Color(0xFFd40606), fontSize = 16.sp, modifier = Modifier.padding(end = 14.dp))
+                        }
                     }
-
 
 
 
